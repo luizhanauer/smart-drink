@@ -1,81 +1,68 @@
-Calculadora de Cerveja
-======================
+# Smart Drink 🍻
 
-My Beer é uma calculadora de bebidas que ajuda a encontrar o melhor preço por litro de cerveja. Este projeto foi criado com o objetivo de simplificar a escolha da melhor opção de bebida alcoólica com base no preço e no volume.
+O **Smart Drink** é uma calculadora avançada de custo-benefício para bebidas. Ele resolve a "matemática de supermercado", comparando diferentes marcas, volumes (latas, garrafas) e packs (caixas) para revelar exatamente qual opção oferece o menor preço por litro.
 
+## ✨ Funcionalidades
 
-Tabela de preços
-----------------
+* **Duelo de Marcas:** Compare o melhor custo-benefício de cada marca lado a lado.
+* **Ranking Detalhado:** Descubra qual embalagem específica (ex: Lata vs. Long Neck) compensa mais.
+* **Suporte a Packs:** Calcule o valor real de packs promocionais (ex: 12x 350ml) contra unidades avulsas.
+* **Dicionário Global:** Adicione novos recipientes personalizados que se replicam automaticamente para todas as marcas.
+* **Compartilhamento de Estado:** Exporte o seu duelo atual via URL codificada para compartilhar com amigos no WhatsApp ou Telegram.
 
-A tabela de preços é exibida na página inicial da aplicação e permite comparar diferentes tamanhos de cerveja com base no preço unitário, preço por litro, mililitros totais e preço total.
+## 🚀 Tecnologias
 
-*   Tamanho
+* **Vue 3** (Composition API & Reatividade)
+* **TypeScript** (Tipagem Estrita e Segurança de Dados)
+* **Tailwind CSS v4** (Interface Moderna com Tema Amber Dark)
+* **Vite** (Next Generation Frontend Tooling)
+* **Vitest** (Unit Testing)
 
-*   Preço Unitário
+## 🏗️ Arquitetura e Boas Práticas
 
-*   Preço por Litro
+Este projeto foi construído sob rigorosos princípios de engenharia de software para garantir precisão matemática e fácil manutenção:
 
-*   ML Total
+* **Domain-Driven Design (DDD):** Toda a inteligência de cálculo financeiro, conversão de volumes e ordenação de rankings está isolada na classe estática `DrinkCalculator`.
+* **Object Calisthenics:** Código limpo e previsível, sem o uso de `else` e com validações de estado seguras (Non-null assertions e Optional Chaining controlados).
+* **State via URL (Stateless):** A aplicação não depende de banco de dados. Todo o estado (marcas, medidas e preços) é serializado em JSON, codificado em Base64 e compartilhado pela URL, garantindo performance e privacidade.
+* **Testabilidade:** Cobertura de testes unitários com Vitest blindando as regras complexas de divisão por volume e multiplicadores de pack.
 
-*   Preço Total
+## 📦 Instalação e Execução
 
-Funcionalidades
----------------
+Para rodar o projeto localmente, siga os passos abaixo:
 
-A calculadora de cerveja permite:
+1. Clone o repositório:
+```bash
+git clone https://github.com/luizhanauer/smart-drink.git
+```
 
-*   Adicionar ou remover itens da tabela
-*   Copiar o conteúdo da tabela para a área de transferência
-*   Calcular o preço por litro de cada item adicionado à tabela
-*   Ordenar a tabela por preço unitário, preço por litro, mililitros totais ou preço total
+2. Acesse a pasta do projeto:
 
-Como usar
--------------
+```bash
+cd smart-drink
+```
 
-1.  Abra o arquivo index.html em seu navegador web.
-    
-2.  Preencha os campos "Tamanho", "Preço Unitário" e "Volume" com os valores correspondentes da cerveja que deseja calcular.
-    
-3.  Clique no botão "Calcular" e os valores "Preço por Litro" e "Preço Total" serão exibidos na tabela.
-    
-4.  Você pode adicionar mais cervejas na tabela e comparar os preços por litro e o preço total de cada uma delas.
-    
-5.  Copie os valores para a área de transferência clicando no botão "Copiar para Área de Transferência".
-    
-6.  Pronto! Agora você pode escolher a cerveja mais econômica de acordo com o preço por litro.
+3. Instale as dependências:
 
+```bash
+npm install
+```
 
-Como executar o Conversor de Base localmente?
--------------------------------
+4. Execute o servidor de desenvolvimento:
 
-Se você quiser executar o Conversor de Base em sua máquina local, basta seguir estas instruções:
+```bash
+npm run dev
+```
 
-1.  Faça o download do repositório ou clone-o em seu computador.
-    
-2.  Abra o arquivo `index.html` em seu navegador.
-    
-3.  O aplicativo Conversor de Base será aberto em seu navegador. Siga as instruções acima para utilizar o aplicativo.
+## 🧪 Como rodar os testes
 
+A camada de domínio possui uma suíte de testes unitários para validar a precisão matemática do custo-benefício. Para executá-los, rode:
 
-Tecnologias utilizadas
-----------------------
+```bash
+npm run test
+```
 
-O projeto foi desenvolvido utilizando as seguintes tecnologias:
-
-*   HTML
-*   CSS
-*   JavaScript
-*   Tailwind CSS
-*   Clipboard.js
-
-Créditos
---------
-
-Este aplicativo foi desenvolvido por Luiz Hanauer e Matheus Tiecher. Ele foi criado usando HTML, CSS, JavaScript e a biblioteca Clipboard.js. Agradecimentos especiais à equipe do [Tailwind CSS](https://tailwindcss.com/) por fornecer o framework CSS utilizado neste projeto.
-
-
-Contribuição
-------------
+## Contribuição
 
 Contribuições são bem-vindas! Se você encontrar algum problema ou tiver sugestões para melhorar a aplicação, sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
@@ -83,8 +70,6 @@ Se você gostou do meu trabalho e quer me agradecer, você pode me pagar um caf�
 
 <a href="https://www.paypal.com/donate/?hosted_button_id=SFR785YEYHC4E" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 150px !important;" ></a>
 
-
-Licença
--------
+## Licença
 
 Este projeto está licenciado sob a Licença MIT. Consulte o arquivo LICENSE para obter mais informações.

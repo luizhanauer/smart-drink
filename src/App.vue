@@ -54,7 +54,7 @@
             </h3>
           </div>
           <div class="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
-            <div v-for="(res, idx) in getMeasureRanking(measure)" :key="res.brandName" 
+            <div v-for="res in getMeasureRanking(measure)" :key="res.brandName" 
                  class="p-3 rounded-xl border flex flex-col justify-between"
                  :class="res.isBestValue ? 'bg-amber-500/10 border-amber-500/50' : (res.hasPrice ? 'bg-stone-950/50 border-stone-800' : 'bg-stone-950/20 border-stone-900 opacity-50')">
               

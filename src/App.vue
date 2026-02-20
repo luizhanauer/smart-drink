@@ -1,22 +1,22 @@
 <template>
-  <main class="min-h-screen bg-stone-950 text-stone-100 py-8 px-4 font-sans selection:bg-amber-500/30">
+  <main class="min-h-screen bg-stone-950 text-stone-100 py-6 sm:py-8 px-4 font-sans selection:bg-amber-500/30">
     <div class="max-w-5xl mx-auto space-y-8">
       
-      <header class="text-center space-y-2 relative">
-        <h1 class="text-5xl font-black text-amber-500 tracking-tighter uppercase italic">Smart Drink</h1>
-        <p class="text-stone-400">O duelo definitivo entre marcas, unidades e packs.</p>
+      <div class="flex flex-col-reverse sm:flex-row items-center justify-between gap-4 bg-stone-900/50 p-3 sm:p-4 rounded-2xl border border-stone-800/50">
+        <label class="flex items-center space-x-2 cursor-pointer text-xs text-stone-400 hover:text-amber-500 transition-colors w-full sm:w-auto justify-center sm:justify-start">
+          <input type="checkbox" v-model="showDetailedRanking" class="accent-amber-500 w-4 h-4">
+          <span class="font-bold uppercase tracking-wider">Ranking Detalhado</span>
+        </label>
         
-        <div class="absolute right-0 top-0 mt-4 sm:mt-0 flex flex-col items-end gap-2">
-          <label class="flex items-center space-x-2 cursor-pointer text-xs text-stone-400 hover:text-amber-500 transition-colors">
-            <input type="checkbox" v-model="showDetailedRanking" class="accent-amber-500">
-            <span class="font-bold uppercase">Ranking Detalhado</span>
-          </label>
-          
-          <button @click="shareStateUrl" 
-                  class="flex items-center gap-2 bg-amber-500/10 hover:bg-amber-500/20 text-amber-500 border border-amber-500/30 px-3 py-1.5 rounded-lg text-xs font-bold transition-all">
-            <span>{{ shareStatus }}</span>
-          </button>
-        </div>
+        <button @click="shareStateUrl" 
+                class="w-full sm:w-auto flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-stone-950 px-5 py-3 sm:py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(245,158,11,0.2)]">
+          <span>{{ shareStatus }}</span>
+        </button>
+      </div>
+
+      <header class="text-center space-y-2">
+        <h1 class="text-5xl sm:text-6xl font-black text-amber-500 tracking-tighter uppercase italic drop-shadow-md">Smart Drink</h1>
+        <p class="text-stone-400 font-medium text-sm sm:text-base">O duelo definitivo entre marcas, unidades e packs.</p>
       </header>
 
       <section v-if="!showDetailedRanking && globalRanking.length > 0" class="bg-amber-500/5 border border-amber-500/20 rounded-3xl p-6 shadow-2xl">
@@ -88,7 +88,7 @@
           <button @click="addBrand" class="px-6 py-4 text-amber-500/50 hover:text-amber-500 text-sm font-bold">+ Nova Marca</button>
         </div>
 
-<div class="p-6">
+        <div class="p-6">
           <div v-if="activeBrandIndex !== -1" class="space-y-6">
             <div class="flex justify-between items-center">
               <input v-model="brands[activeBrandIndex]!.name" class="bg-transparent text-2xl font-black text-white focus:outline-none border-b border-stone-800 focus:border-amber-500">
